@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  deployment-manager:
+    image: deployment-manager
+    build: .
+    environment:
+      NODE_ENV: development
+    ports:
+      - 4000
+      - 9229:9229
+    ## set your startup file here
+    command: node --inspect=0.0.0.0:9229 index.js
